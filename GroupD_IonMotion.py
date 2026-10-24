@@ -20,24 +20,26 @@ def main():
     
     #initial values
     v = y
-    b = 1
-    a = 1
-    t = 2
-    dx,dy = function(v,x,b,t,a)
+    b = 3
+    a = 5
+    t = 0
+    
+    for a,b in [(1,1), (5,1), (5,3), (5,7)]:
+        dx,dy = function(v,x,b,t,a)
 
     
-    plt.quiver(x,y,dx,dy, color='gray')
-    plt.streamplot(x, y, dx, dy, color='lightgray')
-    #plotting nullclines
-    plt.axvline(0, color='k', label='x and v nullcline') # plots vertical nullcline
-    plt.axhline(0, color='k') # plots horizontal nullcline
-    plt.ylabel('f(x,v), Ion Position')
-    plt.xlabel('g(x,v), Ion Speed')
-    plt.plot(0,0,'bo', label='fixed point')
-    plt.legend(loc='upper right', fontsize='7')
-    plt.title('Motion of the Ion within the trap')
-    plt.show()
-    plt.close()
+        plt.quiver(x,y,dx,dy, color='gray')
+        plt.streamplot(x, y, dx, dy, color='lightgray')
+        #plotting nullclines
+        plt.axvline(0, color='k', label='x and v nullcline') # plots vertical nullcline
+        plt.axhline(0, color='k') # plots horizontal nullcline
+        plt.ylabel('f(x,v), Ion Position')
+        plt.xlabel('g(x,v), Ion Speed')
+        plt.plot(0,0,'bo', label='fixed point')
+        plt.legend(loc='upper right', fontsize='7')
+        plt.title(f'Motion of the Ion within the trap for a = {a}, b = {b}, t = {t}')
+        plt.show()
+        plt.close()
     '''
     SOLVER FOR THE FUNCTION
     '''
