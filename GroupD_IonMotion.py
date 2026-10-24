@@ -29,8 +29,10 @@ def main():
     plt.quiver(x,y,dx,dy, color='gray')
     plt.streamplot(x, y, dx, dy, color='lightgray')
     #plotting nullclines
-    plt.axvline(0, color='k', label='x and y nullcline') # plots vertical nullcline
+    plt.axvline(0, color='k', label='x and v nullcline') # plots vertical nullcline
     plt.axhline(0, color='k') # plots horizontal nullcline
+    plt.ylabel('f(x,v), Ion Position')
+    plt.xlabel('g(x,v), Ion Speed')
     plt.plot(0,0,'bo', label='fixed point')
     plt.legend(loc='upper right', fontsize='7')
     plt.title('Motion of the Ion within the trap')
@@ -62,7 +64,20 @@ def main():
     plt.ylabel('x(t), y(t)')
     plt.legend()
     plt.show()
+    plt.close()
     
+    # Plotting just the position and velocity for demonstration of ONLY fixed point
+    plt.axvline(0, color='k', label='x and v nullcline') # plots vertical nullcline
+    plt.axhline(0, color='k') # plots horizontal nullcline
+    plt.plot(0,0, 'bo', label='Determined fixed point at (0,0)')
+    plt.xlim(-4,4)
+    plt.ylim(-4,4)
+    plt.title('Plot of Ion Position against its Velocity')
+    plt.ylabel('f(x,v), Ion Position')
+    plt.xlabel('g(x,v), Ion Speed')
+    plt.legend(loc='upper right', fontsize=7)
+    plt.show()
+    plt.close()
     
 if __name__ == '__main__':
     main()
